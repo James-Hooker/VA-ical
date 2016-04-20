@@ -1,0 +1,17 @@
+{
+	"manifest_version": 2,
+
+	"name": "VA-ical",
+	"description": "This extension allows export of future appointments to your calendar",
+	"version": "0.1",
+
+	"content_scripts":[
+		{
+			"matches": ["https://www.myhealth.va.gov/mhv-portal-web/*","file:///Users/*"],
+			"include_globs": ["*pageLabel=appointments","*mhv.portal"],
+			"js": ["VA-ical.js"],
+			"run_at": "document_idle"
+		}
+	]
+
+}
