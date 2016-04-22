@@ -1,30 +1,34 @@
-console.log("run");
-var sp= "\t-\t";
-NodeList.prototype.forEach = Array.prototype.forEach;
-var appointments = document.querySelectorAll("table#Appointments.mhv-data-listing");
-console.log("appointments: "+ appointments, appointments);
-console.log("first appointment: "+ appointments[0], appointments[0]);
-var rows = appointments[0].querySelectorAll("tr");
-console.log("rows: "+ rows, rows);
-
-var i = 0;
-var row;
-var datum;
-console.log("first row: "+ rows[1], rows[1]);
-console.log("row: "+ rows[1].querySelectorAll("td")[1].innerText, rows[1].querySelectorAll("td")[1].innerText);
-var apts = [];
-while (rows[i+=1].querySelectorAll("td")[1].innerText=="FUTURE"){
-	var apt = [];
-	apt[0] = rows[i].querySelectorAll("td")[0].innerText;
-	apt[1] = rows[i].querySelectorAll("td")[2].innerText;
-	apt[2] = rows[i].querySelectorAll("td")[3].innerText;
-	apts[i-1] = apt;
-	console.log("found data: ",apt[0],sp,apt[1],sp,apt[2]);
-	console.log(
-		apt[0],
-		Date.parse(apt[0]),
-		new Date(Date.parse(apt[0])).toISOString()
-	);
-	//	06/13/2016 10:00
-	console.log(apts);
-};
+(function() {
+	var appointments = document.querySelectorAll("table#Appointments.mhv-data-listing");
+	var rows = appointments[0].querySelectorAll("tr");
+	var i = 0;
+	var row;
+	var datum;
+	var apts = [];
+	var head = "https://calendar.google.com/calendar/render?action=TEMPLATE";
+	var icon = "icon";
+	while (rows[i+=1].querySelectorAll("td")[1].innerText=="FUTURE"){
+		var row = rows[i].querySelectorAll("td");
+		var a = row[0].innerText;
+		var c = row[2].innerText;
+		var d = row[3].innerText;
+		var aa = Date.parse(a);
+		var ab = aa + (1 * 60 * 60 * 1000);
+		var aas = new Date(aa).toISOString();
+		var abs = new Date(ab).toISOString();
+		var aaf = aas.replace(/\..{3}|\:|\-/g,"");
+		var abf = abs.replace(/\..{3}|\:|\-/g,"");
+		var l = encodeURI(
+					head +
+					"&text="+ "VA Appointment"+
+					"&dates="+ aaf + "\/" + abf +
+					"&details="+ c +
+					"&location="+ d
+				);
+		var apt = [a,c,d];
+		apts[i-1] = apt;
+		row[0].innerHTML += ("<a href=\"" + 
+			l
+			+ "\" target=\"_blank\">" + icon + "</a>");
+	};
+})();
