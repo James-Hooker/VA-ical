@@ -10,5 +10,9 @@
 			"matches": ["https://www.myhealth.va.gov/mhv-portal-web/mhv.portal?_nfpb=true&_pageLabel=appointments"],
 			"js": ["VA-ical.js"]
 		}
+	],
+
+	"web_accessible_resources": [
+			"images/*"
 	]
 }

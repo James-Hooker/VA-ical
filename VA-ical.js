@@ -6,7 +6,7 @@
 	var datum;
 	var apts = [];
 	var head = "https://calendar.google.com/calendar/render?action=TEMPLATE";
-	var icon = "icon";
+	var icon = "images/ic_event_black_24px.svg";
 	while (rows[i+=1].querySelectorAll("td")[1].innerText=="FUTURE"){
 		var row = rows[i].querySelectorAll("td");
 		var a = row[0].innerText;
@@ -27,6 +27,14 @@
 				);
 		var apt = [a,c,d];
 		apts[i-1] = apt;
-		row[0].innerHTML += ("<a href=\"" + l + "\" target=\"_blank\">" + icon + "</a>");
+		var al = document.createElement("a");
+		var ico = document.createElement("img");
+		al.setAttribute("href",l);
+		al.setAttribute("target","_blank");
+		al.appendChild(ico);
+		ico.setAttribute("src", chrome.extension.getURL(icon));
+		ico.setAttribute("alt", "Add to Calendar");
+		row[0].appendChild(al);
+
 	};
 })();
