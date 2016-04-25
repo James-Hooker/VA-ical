@@ -7,14 +7,8 @@
 
 	"content_scripts":[
 		{
-			"matches": ["https://www.myhealth.va.gov/mhv-portal-web/*","file:///Users/hookerjs/*"],
-			"include_globs": ["*pageLabel=appointments","*mhv.portal","*HealtheVet.html"],
-			"js": ["VA-ical.js"],
-			"run_at": "document_idle"
+			"matches": ["https://www.myhealth.va.gov/mhv-portal-web/mhv.portal?_nfpb=true&_pageLabel=appointments"],
+			"js": ["VA-ical.js"]
 		}
-	],
-	"permissions": [
-		"tabs"
 	]
-
 }

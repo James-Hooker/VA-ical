@@ -27,8 +27,6 @@
 				);
 		var apt = [a,c,d];
 		apts[i-1] = apt;
-		row[0].innerHTML += ("<a href=\"" + 
-			l
-			+ "\" target=\"_blank\">" + icon + "</a>");
+		row[0].innerHTML += ("<a href=\"" + l + "\" target=\"_blank\">" + icon + "</a>");
 	};
 })();
