@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
 	"name": "VA-ical",
-	"version": "0.1",
+	"version": "0.1.0.1",
 
-	"description": "Create Calendar Events for your Veterans Administration appointments on https:\/\/www.myhealth.va.gov\/ with the push of a button.",
+	"description": "Easily and securely create calendar events for your Veterans Administration health appointments on https:\/\/www.myhealth.va.gov\/.",
 	"icons":{
 		"128": "images/ic_insert_invitation_black_48dp.png"
 	},
