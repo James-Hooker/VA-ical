@@ -1,14 +1,18 @@
 {
 	"manifest_version": 2,
-
 	"name": "VA-ical",
-	"description": "This extension allows export of future appointments to your calendar",
 	"version": "0.1",
+
+	"description": "Create Calendar Events for your Veterans Administration appointments on https:\/\/www.myhealth.va.gov\/ with the push of a button.",
+	"icons":{
+		"128": "images/ic_insert_invitation_black_48dp.png"
+	},
 
 	"content_scripts":[
 		{
 			"matches": ["https://www.myhealth.va.gov/mhv-portal-web/mhv.portal?_nfpb=true&_pageLabel=appointments"],
-			"js": ["VA-ical.js"]
+			"js": ["VA-ical.js"],
+			"css": ["VA-ical.css"]
 		}
 	],
 
